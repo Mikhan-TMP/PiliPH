@@ -17,14 +17,13 @@ X
 } from "lucide-react";
 
 const navItems = [
-{ name: "Home", href: "/", icon: Home },
-{ name: "Elections", href: "/elections", icon: Vote },
-{ name: "Compare", href: "/compare", icon: GitCompare },
-{ name: "My Vote", href: "/my-vote", icon: CheckSquare },
-{ name: "Saved", href: "/saved", icon: Bookmark },
-{ name: "Learn", href: "/learn", icon: BookOpen },
-{ name: "About", href: "/about", icon: Info },
-{ name: "Settings", href: "/settings", icon: Settings },
+    { name: "Home", href: "/", icon: Home },
+    { name: "Elections", href: "/elections", icon: Vote },
+    { name: "Compare", href: "/compare", icon: GitCompare },
+    { name: "My Vote", href: "/my-vote", icon: CheckSquare },
+    { name: "Learn", href: "/learn", icon: BookOpen },
+    { name: "About", href: "/about", icon: Info },
+    { name: "Settings", href: "/settings", icon: Settings },
 ];
 
 export default function Sidebar() {
