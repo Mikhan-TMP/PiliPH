@@ -51,11 +51,11 @@ export default function Home() {
 
         {/* Popular Comparisons Card Section */}
         <div className="pt-6 w-full max-w-2xl mx-auto">
-          <div className="flex items-center justify-between mb-4 px-2">
-            <h2 className="text-xl font-bold text-slate-600 flex items-center gap-2">
+          <div className="flex items-center justify-between mb-4 sm:px-2 md:px-2 lg:px-4">
+            <h2 className="text-xl text-left font-bold text-slate-600 flex items-center gap-2">
               <span role="img" aria-label="fire">🔥</span> Popular Comparisons
             </h2>
-            <span className="text-xs text-indigo-300 uppercase tracking-wider font-semibold">
+            <span className="text-xs items center text-right text-indigo-300 uppercase tracking-wider font-semibold">
               {selectedCategory}
             </span>
           </div>
