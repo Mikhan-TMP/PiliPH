@@ -1,69 +1,152 @@
-import Image from "next/image";
+'use client';
+
+import React, { useState } from 'react';
 
 export default function Home() {
+  const [selectedCategory, setSelectedCategory] = useState('Presidential');
+
+  const categories = [
+    'Presidential',
+    'Vice Presidential',
+    'Senatorial',
+    'Local Candidates',
+  ];
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{" "}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{" "}
-            file.
+    <section className="relative text-white min-h-screen py-16 px-6 md:px-12 overflow-hidden flex flex-col justify-center items-center">
+      <div className="max-w-4xl mx-auto space-y-10 text-center">
+        
+        {/* Header Content */}
+        <div className="space-y-4">
+          <span className="text-sm text-slate-400 select-none">Empowering Filipino Voters</span>
+          <h1 className="text-4xl md:text-5xl font-extrabold tracking-tight leading-tight select-none">
+            <span className="text-indigo-500 ">Know who's running.</span> <br />
+            <span className="text-indigo-900 text-5xl md:text-6xl">See where they stand.</span><br />
+            <span className="text-indigo-500">Vote with confidence.</span>
           </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+        </div>
+        {/* Divider */}
+        <div className="border-t border-slate-700 my-8" />
+        {/* Category Selector */}
+        <div className="space-y-4">
+          <p className="text-md md:text-lg text-slate-900 font-medium select-none">
+            What are you looking for? <br />
           </p>
+          <div className="flex flex-wrap gap-3 justify-center items-center select-none">
+            {categories.map((category) => (
+              <button
+                key={category}
+                onClick={() => setSelectedCategory(category)}
+                className={`px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 border ${
+                  selectedCategory === category
+                    ? 'bg-indigo-600 border-indigo-500 text-white shadow-lg shadow-indigo-600/30 scale-105'
+                    : 'bg-slate-800/80 border-slate-700 text-slate-300 hover:bg-slate-700 hover:text-white'
+                }`}
+              >
+                {category}
+              </button>
+            ))}
+          </div>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+
+        {/* Popular Comparisons Card Section */}
+        <div className="pt-6 w-full max-w-2xl mx-auto">
+          <div className="flex items-center justify-between mb-4 sm:px-2 md:px-2 lg:px-4">
+            <h2 className="text-xl text-left font-bold text-slate-600 flex items-center gap-2">
+              <span role="img" aria-label="fire">🔥</span> Popular Comparisons
+            </h2>
+            <span className="text-xs items center text-right text-indigo-300 uppercase tracking-wider font-semibold">
+              {selectedCategory}
+            </span>
+          </div>
+
+          <div className="bg-slate-800/90 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-sm text-left">
+            <div className="flex justify-between items-center border-b border-slate-700 pb-4 mb-6">
+              <h3 className="text-lg font-bold text-white tracking-wide">
+              </h3>
+              <span className="text-xs bg-indigo-500/10 text-indigo-400 border border-indigo-500/20 px-2.5 py-1 rounded-full font-medium">
+                Head-to-Head
+              </span>
+            </div>
+
+            {/* Candidate Comparison Metrics */}
+            <div className="grid grid-cols-2 gap-6">
+              
+              {/* CANDIDATE A */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-bold text-indigo-300 uppercase tracking-wider">
+                    Candidate A
+                  </span>
+                  <span className="text-xs text-slate-400 font-medium">Bet A</span>
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-xs text-slate-400 mb-1">
+                    <span>Experience</span>
+                    <span>80%</span>
+                  </div>
+                  <div className="w-full bg-slate-700 h-2.5 rounded-full overflow-hidden">
+                    <div className="bg-indigo-500 h-full rounded-full" style={{ width: '80%' }}></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-xs text-slate-400 mb-1">
+                    <span>Education</span>
+                    <span>60%</span>
+                  </div>
+                  <div className="w-full bg-slate-700 h-2.5 rounded-full overflow-hidden">
+                    <div className="bg-indigo-500 h-full rounded-full" style={{ width: '60%' }}></div>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-slate-700/50">
+                  <span className="text-xs text-slate-400">Policy Match</span>
+                  <p className="text-2xl font-extrabold text-indigo-400 mt-0.5">78%</p>
+                </div>
+              </div>
+
+              {/* CANDIDATE B */}
+              <div className="space-y-4 border-l border-slate-700/50 pl-6">
+                <div className="flex items-center justify-between">
+                  <span className="text-sm font-bold text-slate-200 uppercase tracking-wider">
+                    Candidate B
+                  </span>
+                  <span className="text-xs text-slate-400 font-medium">Bet B</span>
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-xs text-slate-400 mb-1">
+                    <span>Experience</span>
+                    <span>60%</span>
+                  </div>
+                  <div className="w-full bg-slate-700 h-2.5 rounded-full overflow-hidden">
+                    <div className="bg-slate-400 h-full rounded-full" style={{ width: '60%' }}></div>
+                  </div>
+                </div>
+
+                <div>
+                  <div className="flex justify-between text-xs text-slate-400 mb-1">
+                    <span>Education</span>
+                    <span>70%</span>
+                  </div>
+                  <div className="w-full bg-slate-700 h-2.5 rounded-full overflow-hidden">
+                    <div className="bg-slate-400 h-full rounded-full" style={{ width: '70%' }}></div>
+                  </div>
+                </div>
+
+                <div className="pt-2 border-t border-slate-700/50">
+                  <span className="text-xs text-slate-400">Policy Match</span>
+                  <p className="text-2xl font-extrabold text-slate-300 mt-0.5">64%</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
         </div>
-      </main>
-    </div>
+
+      </div>
+    </section>
   );
 }
