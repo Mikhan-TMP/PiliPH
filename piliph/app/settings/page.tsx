@@ -37,7 +37,7 @@ const handleResetBallot = () => {
 };
 
 return (
-    <main className="flex-1 overflow-y-auto p-6 md:p-8 bg-[#F8F9FA] min-h-screen text-slate-800 font-sans">
+    <main className="flex-1 overflow-y-auto p-6 md:p-8 min-h-screen text-slate-800 font-sans">
     {/* Header */}
     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 border-b border-slate-200 pb-6">
         <div>
